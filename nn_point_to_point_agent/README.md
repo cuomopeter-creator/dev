@@ -1,4 +1,5 @@
 # 🏎️ BuddyKart – Point-to-Point Reinforcement Learning Agent
+![Cumulative Reward](docs/cumulative_reward.png)
 
 ## Overview
 
@@ -132,7 +133,7 @@ Multi-agent training enabled to increase sample throughput.
 
 Cumulative reward over training:
 
-![Cumulative Reward](docs/cumulative reward.png)
+
 
 The curve shows stabilization after convergence as the policy transitions from velocity-dominant behavior to controlled target acquisition.
 
