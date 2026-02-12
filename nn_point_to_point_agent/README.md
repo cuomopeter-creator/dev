@@ -17,10 +17,10 @@ This project focused heavily on:
 ## 🎥 Demo
 
 ### Start (Untrained Behavior)
-[▶ Watch Start Demo](docs/start.mp4)
+[▶ Watch Start Demo](docs/videos/start.mp4)
 
 ### Finish (Trained Agent)
-[▶ Watch Finished Agent](docs/finish.mp4)
+[▶ Watch Finished Agent](docs/videos/finish.mp4)
 
 The start clip shows unstable exploratory behavior.  
 The finish clip demonstrates consistent target acquisition without overshooting.
