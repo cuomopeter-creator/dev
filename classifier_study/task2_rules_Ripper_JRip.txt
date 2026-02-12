@@ -1,0 +1,11 @@
+JRIP rules:
+===========
+
+(checking_statusno checking <= 0) and (duration >= 18) and (credit_amount <= 2319) => .outcome=bad (98.0/36.0)
+(checking_statusno checking <= 0) and (credit_amount >= 7763) => .outcome=bad (50.0/16.0)
+(checking_statusno checking <= 0) and (duration >= 39) => .outcome=bad (42.0/13.0)
+(checking_statusno checking <= 0) and (credit_amount <= 959) and (duration >= 9) and (property_magnitudereal estate <= 0) => .outcome=bad (26.0/7.0)
+ => .outcome=good (784.0/156.0)
+
+Number of Rules : 5
+

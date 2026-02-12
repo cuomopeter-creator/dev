@@ -1,0 +1,431 @@
+PART decision list
+------------------
+
+checking_statusno checking > 0 AND
+other_payment_plansnone > 0 AND
+purposeused car <= 0 AND
+credit_historydelayed previously <= 0 AND
+other_partiesnone > 0 AND
+num_dependents <= 1 AND
+credit_amount <= 4530 AND
+age > 31: good (103.0)
+
+checking_statusno checking > 0 AND
+other_payment_plansnone > 0 AND
+purposeused car <= 0 AND
+credit_historycritical/other existing credit > 0 AND
+housingown > 0: good (51.0/1.0)
+
+credit_historyno credits/all paid <= 0 AND
+checking_statusno checking > 0 AND
+purposeused car > 0 AND
+other_payment_plansnone > 0: good (45.0)
+
+credit_historyno credits/all paid > 0 AND
+personal_statusmale div/sep <= 0 AND
+housingown <= 0: bad (15.0/1.0)
+
+checking_statusno checking > 0 AND
+employment4<=X<7 > 0 AND
+own_telephoneyes > 0: good (19.0)
+
+duration <= 15 AND
+other_partiesguarantor > 0: good (26.0/1.0)
+
+savings_status>=1000 > 0 AND
+purposeeducation <= 0 AND
+purposerepairs <= 0 AND
+credit_amount <= 4530: good (24.0)
+
+checking_statusno checking > 0 AND
+purposeradio/tv > 0 AND
+personal_statusmale mar/wid <= 0 AND
+existing_credits <= 1: good (32.0/3.0)
+
+checking_status>=200 > 0 AND
+property_magnitudelife insurance <= 0 AND
+employment4<=X<7 <= 0 AND
+savings_status500<=X<1000 <= 0 AND
+jobunskilled resident <= 0 AND
+purposenew car <= 0 AND
+credit_historyexisting paid > 0 AND
+installment_commitment <= 3: good (11.0)
+
+duration <= 11 AND
+purposeeducation <= 0 AND
+credit_historycritical/other existing credit > 0: good (30.0/1.0)
+
+savings_statusno known savings > 0 AND
+credit_historydelayed previously <= 0 AND
+other_partiesnone > 0 AND
+purposenew car <= 0 AND
+jobunskilled resident <= 0 AND
+checking_status0<=X<200 > 0 AND
+purposefurniture/equipment <= 0 AND
+residence_since > 1: good (14.0)
+
+checking_statusno checking > 0 AND
+employmentunemployed <= 0 AND
+personal_statusmale mar/wid > 0: good (15.0/2.0)
+
+purposeused car > 0 AND
+credit_amount <= 8133 AND
+employment1<=X<4 > 0: good (9.0)
+
+savings_statusno known savings > 0 AND
+other_partiesnone > 0 AND
+credit_historydelayed previously > 0: good (13.0/1.0)
+
+checking_statusno checking > 0 AND
+employmentunemployed <= 0 AND
+savings_statusno known savings > 0 AND
+num_dependents <= 1 AND
+employment1<=X<4 <= 0 AND
+own_telephoneyes <= 0: good (8.0)
+
+checking_status>=200 > 0 AND
+property_magnitudereal estate <= 0 AND
+num_dependents <= 1 AND
+credit_historyno credits/all paid <= 0 AND
+jobskilled <= 0: good (12.0)
+
+purposeeducation > 0 AND
+existing_credits <= 2 AND
+employment4<=X<7 <= 0 AND
+housingown > 0: bad (11.0)
+
+purposenew car > 0 AND
+other_payment_plansnone <= 0 AND
+installment_commitment > 2: bad (17.0/1.0)
+
+checking_statusno checking > 0 AND
+employmentunemployed <= 0 AND
+purposeeducation > 0: good (6.0/1.0)
+
+credit_historycritical/other existing credit > 0 AND
+savings_status500<=X<1000 <= 0 AND
+purposenew car <= 0 AND
+property_magnitudelife insurance > 0 AND
+employment1<=X<4 <= 0 AND
+duration <= 27: good (17.0/1.0)
+
+property_magnitudereal estate > 0 AND
+checking_status>=200 > 0 AND
+purposenew car <= 0: bad (6.0)
+
+property_magnitudereal estate > 0 AND
+duration <= 9: good (22.0/1.0)
+
+checking_statusno checking > 0 AND
+other_partiesnone <= 0: good (6.0/1.0)
+
+personal_statusmale single > 0 AND
+savings_status100<=X<500 > 0 AND
+other_partiesnone > 0 AND
+purposeradio/tv <= 0 AND
+checking_status0<=X<200 <= 0: good (9.0)
+
+savings_status500<=X<1000 > 0 AND
+employmentunemployed <= 0 AND
+personal_statusmale div/sep <= 0 AND
+other_payment_plansstores <= 0 AND
+employment>=7 <= 0 AND
+property_magnitudelife insurance <= 0 AND
+credit_historycritical/other existing credit <= 0 AND
+purposenew car <= 0 AND
+installment_commitment > 2: bad (7.0/2.0)
+
+purposenew car > 0 AND
+personal_statusmale single <= 0 AND
+credit_historydelayed previously <= 0 AND
+savings_status500<=X<1000 <= 0 AND
+employmentunemployed <= 0 AND
+property_magnitudelife insurance <= 0 AND
+duration <= 40 AND
+personal_statusmale mar/wid <= 0: bad (21.0/2.0)
+
+property_magnitudereal estate > 0 AND
+jobskilled <= 0 AND
+employment4<=X<7 <= 0 AND
+other_partiesnone > 0 AND
+purposerepairs <= 0 AND
+purposenew car > 0: good (8.0/1.0)
+
+duration > 42 AND
+savings_statusno known savings <= 0 AND
+residence_since > 1 AND
+employmentunemployed <= 0 AND
+checking_statusno checking <= 0 AND
+employment4<=X<7 <= 0: bad (22.0)
+
+savings_status500<=X<1000 > 0 AND
+existing_credits <= 1 AND
+checking_statusno checking <= 0: good (10.0)
+
+personal_statusmale div/sep > 0 AND
+credit_historyno credits/all paid <= 0 AND
+num_dependents <= 1 AND
+other_payment_plansnone > 0 AND
+employment1<=X<4 <= 0 AND
+jobskilled > 0: bad (6.0)
+
+purposenew car <= 0 AND
+checking_status>=200 > 0: good (16.0/3.0)
+
+other_payment_plansnone > 0 AND
+installment_commitment <= 3 AND
+jobunskilled resident > 0 AND
+duration <= 22: good (21.0/1.0)
+
+housingrent > 0 AND
+credit_historydelayed previously <= 0 AND
+other_partiesnone <= 0: bad (9.0/1.0)
+
+other_partiesnone <= 0 AND
+jobunskilled resident <= 0 AND
+employmentunemployed <= 0 AND
+purposenew car <= 0 AND
+property_magnitudelife insurance > 0: good (5.0)
+
+credit_historycritical/other existing credit > 0 AND
+savings_status500<=X<1000 <= 0 AND
+employment>=7 > 0 AND
+credit_amount > 1301: good (17.0/1.0)
+
+credit_historydelayed previously > 0 AND
+installment_commitment > 1 AND
+purposerepairs <= 0 AND
+personal_statusmale div/sep <= 0 AND
+purposeother <= 0 AND
+num_dependents <= 1 AND
+jobskilled > 0 AND
+residence_since > 1: good (15.0/2.0)
+
+residence_since <= 1 AND
+num_dependents <= 1 AND
+personal_statusmale mar/wid > 0 AND
+purposeradio/tv > 0: bad (5.0)
+
+residence_since <= 1 AND
+employmentunemployed <= 0 AND
+personal_statusmale div/sep <= 0 AND
+num_dependents <= 1 AND
+credit_historydelayed previously <= 0 AND
+purposenew car <= 0 AND
+employment4<=X<7 <= 0 AND
+property_magnitudereal estate <= 0 AND
+employment>=7 <= 0 AND
+age <= 31 AND
+credit_amount > 1386: good (12.0)
+
+other_partiesnone <= 0 AND
+jobunskilled resident <= 0 AND
+employmentunemployed <= 0 AND
+property_magnitudereal estate <= 0: bad (7.0/1.0)
+
+other_payment_plansstores > 0 AND
+purposefurniture/equipment <= 0 AND
+employment1<=X<4 <= 0: bad (9.0)
+
+housingrent > 0 AND
+employment4<=X<7 > 0 AND
+age > 23: good (5.0)
+
+housingrent > 0 AND
+employment>=7 <= 0 AND
+purposeused car <= 0 AND
+employment4<=X<7 <= 0 AND
+personal_statusmale single > 0: bad (8.0/1.0)
+
+housingrent > 0 AND
+employment4<=X<7 <= 0 AND
+existing_credits > 1: bad (8.0/1.0)
+
+checking_statusno checking > 0 AND
+housingown <= 0 AND
+credit_historyexisting paid > 0: good (6.0)
+
+purposenew car > 0 AND
+personal_statusmale mar/wid <= 0 AND
+installment_commitment > 2 AND
+num_dependents <= 1 AND
+checking_statusno checking <= 0 AND
+installment_commitment > 3 AND
+employment4<=X<7 <= 0 AND
+jobunskilled resident <= 0 AND
+personal_statusmale single > 0 AND
+employment>=7 <= 0: good (6.0/1.0)
+
+purposenew car > 0 AND
+personal_statusmale mar/wid <= 0 AND
+installment_commitment > 2 AND
+checking_statusno checking <= 0 AND
+age <= 62: bad (21.0)
+
+personal_statusmale single > 0 AND
+employmentunemployed > 0 AND
+residence_since > 2: good (9.0)
+
+property_magnitudeno known property > 0 AND
+purposeradio/tv <= 0 AND
+purposerepairs <= 0 AND
+employment>=7 > 0 AND
+jobskilled <= 0: bad (6.0)
+
+jobunskilled resident > 0 AND
+property_magnitudeno known property <= 0 AND
+other_partiesguarantor <= 0 AND
+savings_statusno known savings <= 0 AND
+other_payment_plansstores <= 0 AND
+employment>=7 <= 0 AND
+checking_statusno checking <= 0 AND
+employment4<=X<7 <= 0 AND
+credit_historyexisting paid <= 0: bad (5.0)
+
+jobunskilled resident > 0 AND
+property_magnitudeno known property <= 0 AND
+other_partiesguarantor <= 0 AND
+credit_historycritical/other existing credit <= 0 AND
+savings_statusno known savings <= 0 AND
+other_payment_plansstores <= 0 AND
+own_telephoneyes <= 0 AND
+property_magnitudereal estate <= 0 AND
+duration <= 18 AND
+checking_status0<=X<200 <= 0: good (5.0)
+
+jobunskilled resident > 0 AND
+property_magnitudeno known property <= 0 AND
+other_partiesguarantor <= 0 AND
+credit_historycritical/other existing credit <= 0 AND
+savings_statusno known savings <= 0 AND
+other_payment_plansstores <= 0 AND
+installment_commitment > 1 AND
+purposenew car <= 0 AND
+property_magnitudelife insurance <= 0 AND
+own_telephoneyes <= 0: good (7.0/1.0)
+
+credit_historyno credits/all paid > 0 AND
+purposefurniture/equipment <= 0 AND
+purposeused car <= 0 AND
+employment1<=X<4 <= 0: good (4.0/1.0)
+
+personal_statusmale mar/wid > 0 AND
+employment>=7 <= 0 AND
+purposenew car > 0: bad (6.0)
+
+housingrent > 0 AND
+employment4<=X<7 <= 0 AND
+employment1<=X<4 > 0: bad (5.0/1.0)
+
+jobskilled <= 0 AND
+other_partiesnone > 0 AND
+personal_statusmale div/sep <= 0 AND
+other_payment_plansstores <= 0 AND
+credit_historycritical/other existing credit > 0: good (7.0/1.0)
+
+credit_historyexisting paid <= 0 AND
+savings_status>=1000 <= 0 AND
+employment4<=X<7 > 0 AND
+savings_status100<=X<500 <= 0: bad (9.0)
+
+employment4<=X<7 > 0 AND
+housingrent <= 0 AND
+num_dependents <= 1 AND
+checking_statusno checking <= 0 AND
+purposeeducation <= 0 AND
+checking_status0<=X<200 > 0 AND
+residence_since <= 2: good (5.0)
+
+employment4<=X<7 > 0 AND
+housingrent <= 0 AND
+age > 30: good (11.0)
+
+other_partiesnone <= 0: good (8.0)
+
+other_payment_plansstores > 0 AND
+existing_credits <= 1: good (4.0)
+
+employment4<=X<7 > 0 AND
+checking_status0<=X<200 <= 0 AND
+purposefurniture/equipment <= 0 AND
+own_telephoneyes <= 0: good (3.0/1.0)
+
+purposeused car <= 0 AND
+duration > 28 AND
+checking_statusno checking <= 0: bad (19.0/1.0)
+
+personal_statusmale mar/wid > 0 AND
+employment1<=X<4 > 0: bad (5.0)
+
+credit_historydelayed previously > 0 AND
+installment_commitment <= 2: good (7.0)
+
+credit_historyno credits/all paid > 0 AND
+checking_status0<=X<200 <= 0 AND
+duration <= 28: bad (2.0)
+
+credit_historycritical/other existing credit > 0 AND
+num_dependents <= 1: good (6.0/1.0)
+
+credit_historyexisting paid <= 0 AND
+credit_historyno credits/all paid <= 0 AND
+employmentunemployed <= 0: bad (11.0)
+
+purposenew car > 0 AND
+property_magnitudelife insurance > 0 AND
+residence_since > 2: good (5.0/1.0)
+
+other_payment_plansnone <= 0 AND
+savings_statusno known savings <= 0: good (8.0/1.0)
+
+employmentunemployed > 0 AND
+housingown > 0: bad (10.0/1.0)
+
+purposenew car <= 0 AND
+own_telephoneyes > 0 AND
+savings_status100<=X<500 <= 0 AND
+installment_commitment <= 3 AND
+purposefurniture/equipment <= 0: bad (7.0)
+
+purposenew car <= 0 AND
+purposeused car > 0: good (8.0/2.0)
+
+purposenew car > 0: good (5.0/1.0)
+
+jobunskilled resident > 0: bad (4.0/1.0)
+
+jobskilled <= 0 AND
+purposefurniture/equipment <= 0: good (3.0)
+
+checking_status0<=X<200 > 0 AND
+residence_since <= 3 AND
+residence_since > 1: bad (8.0)
+
+checking_statusno checking <= 0 AND
+savings_status100<=X<500 <= 0 AND
+employment1<=X<4 <= 0 AND
+property_magnitudelife insurance <= 0: good (8.0/1.0)
+
+jobskilled > 0 AND
+own_telephoneyes <= 0 AND
+purposefurniture/equipment <= 0 AND
+employment1<=X<4 <= 0: bad (4.0)
+
+jobskilled > 0 AND
+employment>=7 <= 0 AND
+own_telephoneyes <= 0 AND
+personal_statusmale single <= 0: bad (6.0/2.0)
+
+jobskilled > 0 AND
+employment1<=X<4 <= 0: good (6.0)
+
+housingown > 0 AND
+purposefurniture/equipment > 0 AND
+property_magnitudereal estate <= 0: bad (3.0/1.0)
+
+housingown > 0: good (4.0)
+
+: bad (2.0)
+
+Number of Rules  : 	83
+
