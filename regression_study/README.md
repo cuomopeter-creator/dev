@@ -1,63 +1,75 @@
 # 📈 Regression Study
 
 ## 📌 Overview
-This project performs a full regression analysis workflow, moving from exploratory correlation analysis to model fitting and statistical evaluation.  
-The study also examines how noise affects coefficient stability and model significance.
+This project explores linear and nonlinear regression techniques, progressing from simple linear regression to multiple feature exploration and polynomial regression.  
+The goal is to understand how model complexity improves predictive performance.
 
 ---
 
 ## 🎯 Objectives
-- Identify relationships between variables
-- Inspect feature distributions and linear trends
-- Fit a regression model and interpret results
-- Evaluate robustness under noisy data conditions
+- Fit and interpret a simple linear regression model
+- Explore relationships between multiple predictors and the target
+- Capture nonlinear patterns using polynomial regression
+- Compare model behavior as complexity increases
 
 ---
 
-## 🔍 Exploratory Data Analysis
+## 📉 Simple Linear Regression
 
-### Correlation Heatmap
-The heatmap highlights the strength and direction of linear relationships between variables.
+A baseline model using a single predictor with a fitted regression line.
 
-![Correlation Heatmap](docs/task1_correlation_heatmap.png)
+![Linear Regression](docs/linear_regression.png)
 
-**Why this matters:**
-- Detect multicollinearity
-- Identify strong predictors
-- Guide feature selection
+**Key idea:**  
+Establishes the fundamental relationship between one feature and the target and provides an interpretable starting point.
 
 ---
 
-### Pairplot
-Pairwise feature relationships and distributions used to visually assess:
-- Linearity
-- Outliers
-- Feature separability
+## 🔍 Multiple Regression – Feature Exploration
 
-![Pairplot](docs/task2_pairplot.png)
+Scatter plots used to examine relationships between multiple predictors and the response variable.
 
----
+![Multiple Regression Exploration](docs/multiple_regress_explore.png)
 
-## 🧠 Regression Model Results
-
-### Clean Data
-Full statistical output:
-
-See: docs/task3_regression_results.txt
-
-
-
-
-**Key interpretation areas:**
-- Coefficients
-- p-values
-- R² / Adjusted R²
-- Feature significance
+**Why this matters:**  
+- Identifies the strongest predictors  
+- Reveals linear vs non-linear trends  
+- Detects potential multicollinearity  
 
 ---
 
-### Noisy Data
-Model re-fit after adding noise:
+## 📊 Polynomial Regression
+
+A nonlinear model that captures curvature in the data.
+
+![Polynomial Regression](docs/poly_regression.png)
+
+**Key idea:**  
+Polynomial features allow the model to fit more complex patterns that a straight line cannot capture.
+
+---
+
+## 🧠 Key Findings
+- Simple linear regression provides a strong, interpretable baseline
+- Feature exploration helps guide model design and predictor selection
+- Polynomial regression improves fit when relationships are nonlinear
+- Increasing model complexity must be balanced against overfitting
+
+---
+
+## ⚙️ Tech Stack
+- Python  
+- scikit-learn  
+- pandas  
+- matplotlib / seaborn  
+
+---
+
+## 🚀 How to Run
+
+```bash
+pip install -r requirements.txt
+jupyter notebook
 
 
 regression_study/
