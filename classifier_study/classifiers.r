@@ -343,3 +343,132 @@ if (!is.na(pval) && pval < 0.05) {
   cat("\nNo significant difference detected at 95% confidence (p >= 0.05).\n")
   cat("Tukey test not required per project instructions.\n")
 }
+# ---------------------------
+# Task 4 (Milestone 2): Robustness to 10% class-label noise
+# ---------------------------
+
+set.seed(42)
+
+df_noisy <- df
+
+# Flip 10% of class labels (bad <-> good)
+n <- nrow(df_noisy)
+k <- ceiling(0.10 * n)
+flip_idx <- sample(seq_len(n), size = k, replace = FALSE)
+
+# Preserve factor levels (if class is factor)
+orig_levels <- levels(as.factor(df_noisy$class))
+# Convert to character for easy manipulation, then back to factor with original levels after flipping
+cls_chr <- as.character(df_noisy$class)
+
+# Flip labels at flip_idx: if "bad" -> "good", if "good" -> "bad"
+cls_chr[flip_idx] <- ifelse(cls_chr[flip_idx] == "bad", "good",
+                            ifelse(cls_chr[flip_idx] == "good", "bad", cls_chr[flip_idx]))
+
+# Convert back to factor with original levels to avoid issues in modeling
+df_noisy$class <- factor(cls_chr, levels = orig_levels)
+
+cat("Injected noise into class labels.\n")
+cat("Total rows:", n, " Flipped:", length(flip_idx), "\n")
+cat("Class distribution AFTER noise:\n")
+print(table(df_noisy$class))
+
+# Re-create folds/ctrl based on noisy labels
+folds_noise <- createMultiFolds(y = df_noisy$class, k = 10, times = 3)
+
+ctrl_noise <- trainControl(
+  method = "repeatedcv",
+  number = 10,
+  repeats = 3,
+  index = folds_noise,
+  classProbs = FALSE,
+  savePredictions = "final",
+  verboseIter = FALSE
+)
+
+metric <- "Accuracy"
+
+# Train the same 3 classifiers on noisy data
+cat("\nTraining Decision Tree (rpart) on noisy data...\n")
+model_dt_n <- train(
+  class ~ .,
+  data = df_noisy,
+  method = "rpart",
+  trControl = ctrl_noise,
+  metric = metric,
+  tuneLength = 10
+)
+
+cat("\nTraining PART on noisy data...\n")
+model_part_n <- train(
+  class ~ .,
+  data = df_noisy,
+  method = "PART",
+  trControl = ctrl_noise,
+  metric = metric,
+  tuneLength = 1
+)
+
+cat("\nTraining Ripper/JRip on noisy data...\n")
+model_rip_n <- train(
+  class ~ .,
+  data = df_noisy,
+  method = "JRip",
+  trControl = ctrl_noise,
+  metric = metric,
+  tuneLength = 1
+)
+
+# Collect accuracies across 30 resamples
+acc_dt_n   <- model_dt_n$resample$Accuracy
+acc_part_n <- model_part_n$resample$Accuracy
+acc_rip_n  <- model_rip_n$resample$Accuracy
+
+cat("\nLength of accuracy vectors (should be 30 each):\n")
+cat("DT:", length(acc_dt_n), " PART:", length(acc_part_n), " JRip:", length(acc_rip_n), "\n")
+
+cat("\nSummary accuracies (NOISY labels):\n")
+cat("DT mean:", mean(acc_dt_n), "sd:", sd(acc_dt_n), "\n")
+cat("PART mean:", mean(acc_part_n), "sd:", sd(acc_part_n), "\n")
+cat("JRip mean:", mean(acc_rip_n), "sd:", sd(acc_rip_n), "\n")
+
+# ANOVA + Tukey on noisy results
+acc_df_n <- data.frame(
+  accuracy = c(acc_dt_n, acc_part_n, acc_rip_n),
+  model = factor(rep(c("DecisionTree", "PART", "Ripper_JRip"),
+                     times = c(length(acc_dt_n), length(acc_part_n), length(acc_rip_n))))
+)
+
+anova_fit_n <- aov(accuracy ~ model, data = acc_df_n)
+anova_tbl_n <- summary(anova_fit_n)
+
+cat("\nANOVA table (NOISY labels):\n")
+print(anova_tbl_n)
+
+anova_out_n <- capture.output(anova_tbl_n)
+writeLines(anova_out_n, "task4_anova_table_noisy.txt")
+cat("\nSaved noisy ANOVA table to: task4_anova_table_noisy.txt\n")
+
+pval_n <- anova_tbl_n[[1]][["Pr(>F)"]][1]
+cat("\nANOVA p-value (NOISY labels):", pval_n, "\n")
+
+if (!is.na(pval_n) && pval_n < 0.05) {
+  cat("\nSignificant difference detected (p < 0.05). Running Tukey HSD (NOISY labels)...\n")
+  tuk_n <- TukeyHSD(anova_fit_n)
+  print(tuk_n)
+
+  tuk_out_n <- capture.output(tuk_n)
+  writeLines(tuk_out_n, "task4_tukeyHSD_noisy.txt")
+  cat("Saved noisy Tukey HSD output to: task4_tukeyHSD_noisy.txt\n")
+
+  means_n <- tapply(acc_df_n$accuracy, acc_df_n$model, mean)
+  best_model_n <- names(which.max(means_n))
+
+  cat("\nHighest mean accuracy model (NOISY labels):", best_model_n, "\n")
+  cat("Means (NOISY labels):\n")
+  print(means_n)
+
+} else {
+  cat("\nNo significant difference detected at 95% confidence (p >= 0.05) on NOISY labels.\n")
+  cat("Tukey test not required per project instructions.\n")
+}

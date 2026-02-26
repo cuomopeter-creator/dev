@@ -1,0 +1,5 @@
+            Df  Sum Sq Mean Sq F value   Pr(>F)    
+model        2 0.04137 0.02069    15.1 2.36e-06 ***
+Residuals   87 0.11922 0.00137                     
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1

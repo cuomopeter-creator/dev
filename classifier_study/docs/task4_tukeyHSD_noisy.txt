@@ -1,0 +1,11 @@
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = accuracy ~ model, data = acc_df_n)
+
+$model
+                                diff         lwr          upr     p adj
+PART-DecisionTree        -0.05137304 -0.07416435 -0.028581729 0.0000019
+Ripper_JRip-DecisionTree -0.01623439 -0.03902570  0.006556919 0.2115679
+Ripper_JRip-PART          0.03513865  0.01234734  0.057929956 0.0011791
+
