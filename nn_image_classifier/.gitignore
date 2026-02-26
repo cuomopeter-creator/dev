@@ -1,0 +1,36 @@
+# Virtual environments
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Dataset (DO NOT push 10k images to GitHub)
+dataset/
+ConvNet_dataset/
+
+# Saved models
+*.h5
+*.keras
+saved_model/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+
+# Dataset
+ConvNet_dataset/
+
+# Trained models
+*.keras
+*.h5
+saved_model/
+
+# Videos / zips / large outputs
+*.mp4
+*.zip
